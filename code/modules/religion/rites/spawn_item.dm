@@ -218,3 +218,69 @@
 			M.flash_eyes()
 
 	return TRUE
+
+/*
+ * Create talisman
+ * Imbue paper with magic properties
+ */
+/datum/religion_rites/spawn_item/talisman
+	sacrifice_type = /obj/item/weapon/paper
+
+
+/datum/religion_rites/spawn_item/talisman/New()
+	..()
+	name = "Create talisman of [name]"
+	adding_favor = favor_cost
+	favor_cost = 0
+
+/datum/religion_rites/spawn_item/talisman/light
+	name = "light"
+	favor_cost = 300
+	ritual_length = (50 SECONDS)
+	spawn_type = /obj/item/weapon/paper/holy_talisman/light
+	needed_aspects = list(
+		ASPECT_SPAWN = 1,
+		ASPECT_LIGHT = 1,
+	)
+
+/datum/religion_rites/spawn_item/talisman/regen
+	name = "regeneration"
+	favor_cost = 1000
+	ritual_length = (5 MINUTES)
+	spawn_type = /obj/item/weapon/paper/holy_talisman/regen
+	needed_aspects = list(
+		ASPECT_SPAWN = 1,
+		ASPECT_RESCUE = 2,
+	)
+
+/datum/religion_rites/spawn_item/talisman/antivirus
+	name = "health protection"
+	favor_cost = 750
+	ritual_length = (2 MINUTES)
+	spawn_type = /obj/item/weapon/paper/holy_talisman/antivirus
+	needed_aspects = list(
+		ASPECT_SPAWN = 1,
+		ASPECT_RESCUE = 1,
+		ASPECT_OBSCURE = 1,
+	)
+
+/datum/religion_rites/spawn_item/talisman/stun
+	name = "stunning"
+	favor_cost = 600
+	ritual_length = (2 MINUTES)
+	spawn_type = /obj/item/weapon/paper/holy_talisman/stun
+	needed_aspects = list(
+		ASPECT_SPAWN = 1,
+		ASPECT_DEATH = 1,
+		ASPECT_OBSCURE = 1,
+	)
+
+/datum/religion_rites/spawn_item/talisman/upgrade
+	name = "upgrade"
+	ritual_length = (50 SECONDS)
+	favor_cost = 300 // swap upgrades a lot of things for literally no cost but it requires disassembly, this one does not, good deal as for me
+	spawn_type = /obj/item/weapon/paper/holy_talisman/upgrade
+	needed_aspects = list(
+		ASPECT_SPAWN = 1,
+		ASPECT_SCIENCE = 1,
+	)

@@ -48,7 +48,8 @@
 	updateinfolinks()
 
 /obj/item/weapon/paper/update_icon()
-	if(icon_state == "scrap_bloodied")
+	if(istype(src, /obj/item/weapon/paper/talisman) \
+	|| istype(src, /obj/item/weapon/paper/holy_talisman))
 		return
 	if(info)
 		icon_state = "paper_words"
