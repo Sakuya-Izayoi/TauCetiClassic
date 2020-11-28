@@ -818,3 +818,10 @@
 	item_color = "SS_Form"
 	armor = list(melee = 10, bullet = 5, laser = 5,energy = 5, bomb = 0, bio = 10, rad = 0)
 
+/obj/item/clothing/under/miko_attire
+	name = "kosode and red hakama"
+	desc = "Traditional Space-Shinto unisex priest attire."
+	icon_state = "miko_attire"
+	item_state = "miko_attire"
+	item_color = "miko_attire"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
