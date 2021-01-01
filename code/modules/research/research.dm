@@ -807,7 +807,7 @@ The tech datums are the actual "tech trees" that you improve through researching
 	required_tech_levels = list()
 	cost = 1000
 
-	unlocks_designs = list("adv_sensor", "nano_mani", "implant_chem", "implant_death", "implant_tracking", "defibrillators_compact", "sensor_device", "scalpel_laser2", "biocan", "secmed_hud", "implanter", "airbag", "lazarus")
+	unlocks_designs = list("adv_sensor", "nano_mani", "implant_mecha_auth", "implant_chem", "implant_death", "implant_tracking", "defibrillators_compact", "sensor_device", "scalpel_laser2", "biocan", "secmed_hud", "implanter", "implantpad", "airbag", "lazarus", "mecha_auth_module")
 
 /datum/technology/med_teleportation
 	name = "Medical Teleportation"

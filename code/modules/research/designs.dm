@@ -1634,6 +1634,33 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/implanter
 	category = list("Support")
 
+/datum/design/implantpad
+	name = "implantpad"
+	desc = "Device used to configure certain implants."
+	id = "implantpad"
+	build_type = PROTOLATHE
+	materials = list(MAT_METAL = 1000, MAT_GOLD = 1000, MAT_GLASS = 1000)
+	build_path = /obj/item/weapon/implantpad
+	category = list("Support")
+
+/datum/design/implant_mecha_auth
+	name = "Glass Case- 'Mecha Auth'"
+	desc = "A case containing a mecha auth implant."
+	id = "implant_mecha_auth"
+	build_type = PROTOLATHE
+	materials = list(MAT_METAL = 1000, MAT_GLASS = 1000, MAT_SILVER = 1000)
+	build_path = /obj/item/weapon/implantcase/mecha_auth
+	category = list("Support")
+
+/datum/design/mecha_auth_module
+	name = "Mecha Auth Module"
+	desc = "An exosuit module to prevent unauthorized access."
+	id = "mecha_auth_module"
+	build_type = IMPRINTER
+	materials = list(MAT_GOLD = 1000, MAT_GLASS = 1000, "sacid" = 20)
+	build_path = /obj/item/mecha_parts/module/mecha_auth
+	category = list("Mech")
+
 /datum/design/implant_loyal
 	name = "Glass Case- 'Loyalty'"
 	desc = "A case containing a loyalty implant."

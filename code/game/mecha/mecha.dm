@@ -92,6 +92,8 @@
 	var/occupant_sight_flags = 0 //sight flags to give to the occupant (e.g. mech mining scanner gives meson-like vision)
 	var/mouse_pointer
 
+	var/list/obj/item/mecha_parts/module/modules = list()
+
 	hud_possible = list (DIAG_STAT_HUD, DIAG_BATT_HUD, DIAG_MECH_HUD)
 
 /obj/mecha/atom_init()
@@ -714,6 +716,12 @@
 		if(hasInternalDamage(MECHA_INT_TEMP_CONTROL))
 			clearInternalDamage(MECHA_INT_TEMP_CONTROL)
 			to_chat(user, "You repair the damaged temperature controller.")
+		else if(state == 1)
+			var/obj/to_remove = input(user, "Select module to remove", "Exosuit modules") in modules as obj|null
+			if(to_remove != null)
+				to_remove.forceMove(loc)
+				user.visible_message("[user] removes [to_remove] from [src].", "You remove [to_remove] from [src]")
+				modules -= to_remove
 		else if(state==3 && src.cell)
 			src.cell.forceMove(src.loc)
 			src.cell = null
@@ -754,11 +762,21 @@
 		else
 			to_chat(user, "The [src.name] is at full integrity")
 		return
-
 	else if(istype(W, /obj/item/mecha_parts/mecha_tracking))
 		user.drop_from_inventory(W)
 		W.forceMove(src)
 		user.visible_message("[user] attaches [W] to [src].", "You attach [W] to [src]")
+		return
+
+	else if(istype(W, /obj/item/mecha_parts/module) && state == 1)
+		for(var/obj/O in src)
+			if(O.type == W.type)
+				to_chat(user, "<span class='warning'>There is [O] already installed.</span>")
+				return
+		user.drop_from_inventory(W)
+		W.forceMove(src)
+		user.visible_message("[user] installs [W] into [src].", "You install [W] into [src]")
+		modules += W
 		return
 
 	else if(istype(W, /obj/item/weapon/paintkit))
@@ -992,12 +1010,14 @@
 		to_chat(usr, "<span class='notice'><B>Subject cannot have abiotic items on.</B></span>")
 		return
 */
-	var/passed
+	var/passed = FALSE
 	if(src.dna)
 		if(usr.dna.unique_enzymes==src.dna)
-			passed = 1
+			passed = TRUE
 	else if(src.operation_allowed(usr))
-		passed = 1
+		passed = TRUE
+	for(var/obj/item/mecha_parts/module/mecha_auth/A in modules)
+		passed = A.auth(usr)
 	if(!passed)
 		to_chat(usr, "<span class='warning'>Access denied</span>")
 		src.log_append_to_last("Permission denied.")

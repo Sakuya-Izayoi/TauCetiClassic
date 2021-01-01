@@ -3,12 +3,20 @@
 /obj/item/weapon/implantcase
 	name = "Glass Case"
 	desc = "A case containing an implant."
+	icon = 'icons/obj/items.dmi'
 	icon_state = "implantcase-0"
 	item_state = "implantcase"
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEM_SIZE_TINY
+	var/imp_t
 	var/obj/item/weapon/implant/imp = null
+
+/obj/item/weapon/implantcase/atom_init()
+	. = ..()
+	if(imp_t)
+		imp = new imp_t(src)
+		imp.reliability = reliability
 
 /obj/item/weapon/implantcase/proc/update()
 	if (src.imp)
@@ -64,71 +72,51 @@
 /obj/item/weapon/implantcase/tracking
 	name = "Glass Case- 'Tracking'"
 	desc = "A case containing a tracking implant."
-	icon = 'icons/obj/items.dmi'
 	icon_state = "implantcase-b"
-
-/obj/item/weapon/implantcase/tracking/atom_init()
-	imp = new /obj/item/weapon/implant/tracking(src)
-	. = ..()
-
-
+	imp_t = /obj/item/weapon/implant/tracking
 
 /obj/item/weapon/implantcase/explosive
 	name = "Glass Case- 'Explosive'"
 	desc = "A case containing an explosive implant."
-	icon = 'icons/obj/items.dmi'
 	icon_state = "implantcase-r"
-
-/obj/item/weapon/implantcase/explosive/atom_init()
-	imp = new /obj/item/weapon/implant/explosive(src)
-	. = ..()
+	imp_t = /obj/item/weapon/implant/explosive
 
 /obj/item/weapon/implantcase/freedom
 	name = "Glass Case- 'Freedom'"
 	desc = "A case containing an freedom implant."
-	icon = 'icons/obj/items.dmi'
 	icon_state = "implantcase-r"
-
-/obj/item/weapon/implantcase/freedom/atom_init()
-	imp = new /obj/item/weapon/implant/freedom(src)
-	. = ..()
+	imp_t = /obj/item/weapon/implant/freedom
 
 /obj/item/weapon/implantcase/chem
 	name = "Glass Case- 'Chem'"
 	desc = "A case containing a chemical implant."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "implantcase-b"
-
-/obj/item/weapon/implantcase/chem/atom_init()
-	imp = new /obj/item/weapon/implant/chem(src)
-	. = ..()
+	imp_t = /obj/item/weapon/implant/chem
 
 /obj/item/weapon/implantcase/mindshield
 	name = "Glass Case- 'MindShield'"
 	desc = "A case containing a mindshield implant."
-	icon = 'icons/obj/items.dmi'
 	icon_state = "implantcase-r"
-
-/obj/item/weapon/implantcase/mindshield/atom_init()
-	imp = new /obj/item/weapon/implant/mindshield(src)
-	. = ..()
+	imp_t = /obj/item/weapon/implant/mindshield
 
 /obj/item/weapon/implantcase/loyalty
 	name = "Glass Case- 'Loyalty'"
 	desc = "A case containing a loyalty implant."
-	icon = 'icons/obj/items.dmi'
 	icon_state = "implantcase-r"
-
-/obj/item/weapon/implantcase/loyalty/atom_init()
-	imp = new /obj/item/weapon/implant/mindshield/loyalty(src)
-	. = ..()
+	imp_t = /obj/item/weapon/implant/mindshield/loyalty
 
 /obj/item/weapon/implantcase/death_alarm
 	name = "Glass Case- 'Death Alarm'"
 	desc = "A case containing a death alarm implant."
-	icon = 'icons/obj/items.dmi'
 	icon_state = "implantcase-b"
+	imp_t = /obj/item/weapon/implant/death_alarm
 
-/obj/item/weapon/implantcase/death_alarm/atom_init()
-	imp = new /obj/item/weapon/implant/death_alarm(src)
-	. = ..()
+/obj/item/weapon/implantcase/mecha_auth
+	name = "Glass Case- 'Mecha Auth'"
+	desc = "A case containing a mecha authentication implant."
+	icon_state = "implantcase-b"
+	imp_t = /obj/item/weapon/implant/mecha_auth
+
+/obj/item/weapon/implantcase/mecha_auth/syndie
+	imp_t = /obj/item/weapon/implant/mecha_auth/syndie

@@ -737,6 +737,13 @@
 	item = /obj/item/weapon/storage/box/syndie_kit/imp_emp
 	cost = 3
 
+/datum/uplink_item/implants/mecha_auth
+	name = "Mecha Auth Implant"
+	desc = "Contains implants and tools to prevent unauthorized exosuit access."
+	item = /obj/item/weapon/storage/box/syndie_kit/mecha_auth
+	cost = 6
+	uplink_types = list("nuclear")
+
 // POINTLESS BADASSERY
 
 /datum/uplink_item/badass

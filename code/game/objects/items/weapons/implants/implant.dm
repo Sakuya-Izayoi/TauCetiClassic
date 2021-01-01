@@ -11,6 +11,7 @@
 	var/allow_reagents = 0
 	var/malfunction = 0
 	var/uses = 0
+	var/list/data = list()
 
 /obj/item/weapon/implant/atom_init()
 	. = ..()
@@ -79,7 +80,7 @@
 /obj/item/weapon/implant/tracking
 	name = "tracking implant"
 	desc = "Track with this."
-	var/id = 1.0
+	data = list("id" = 1)
 
 /obj/item/weapon/implant/tracking/get_data()
 	var/dat = {"<b>Implant Specifications:</b><BR>

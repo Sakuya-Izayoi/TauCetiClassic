@@ -44,7 +44,7 @@
 				loc_display = mob_loc.loc
 			if(T.malfunction)
 				loc_display = pick(teleportlocs)
-			dat += "ID: [T.id] | Location: [loc_display]<BR>"
+			dat += "ID: [T.data["id"]] | Location: [loc_display]<BR>"
 			dat += "<A class='red' href='?src=\ref[src];warn=\ref[T]'><i>Message Holder</i></A> |<BR>"
 			dat += "********************************<BR>"
 		dat += "<HR><A href='?src=\ref[src];lock=1'>Lock Console</A>"

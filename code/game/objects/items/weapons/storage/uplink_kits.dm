@@ -287,3 +287,9 @@
 	new /obj/item/clothing/suit/syndieshirt(src)
 	new /obj/item/toy/syndicateballoon(src)
 	make_exact_fit()
+
+/obj/item/weapon/storage/box/syndie_kit/mecha_auth
+	name = "Mecha Auth Kit"
+	desc = "Box containing mecha auth implants and mecha module to prevent unauthorized mecha usage"
+	startswith = list(/obj/item/weapon/implantcase/mecha_auth/syndie = 6, /obj/item/mecha_parts/module/mecha_auth/syndie = 1, /obj/item/weapon/implantpad = 1, /obj/item/weapon/implanter = 1)
+
